@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="BlueGrass CodeWorks — Selected client work and case studies" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Work — BlueGrass CodeWorks</title>
+</head>
+<body>
+
+  <!-- HEADER (match index) -->
+  <header class="site-header absolute-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">/* BlueGrass CodeWorks */</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <div class="nav-item has-dropdown">
+            <a href="#" id="expertise-toggle">Expertise <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-panel" id="expertise-dropdown">
+              <div class="panel">
+                <a href="crm-transformation.html" title="Learn more about CRM Transformation">
+                  <i class="fas fa-sync-alt"></i>
+                </a>
+                <h4>CRM for DIGITAL TRANSFORMATION</h4>
+                <p>Centralize customer relationships, automate workflows, and drive growth through tailored CRM platforms.</p>
+              </div>
+              <div class="panel">
+                <a href="web-mobile-integration.html" title="Explore Web and Mobile Integration">
+                  <i class="fas fa-mobile-alt"></i>
+                </a>
+                <h4>WEB and MOBILE Integration</h4>
+                <p>Connect your CRM, marketing, and backend systems to your website and mobile apps for seamless engagement.</p>
+              </div>
+              <div class="panel">
+                <a href="ai-utilization.html" title="Explore AI Utilization">
+                  <i class="fas fa-brain"></i>
+                </a>
+                <h4>AI Utilization</h4>
+                <p>Leverage ML and generative AI to improve predictions, insights, and process efficiency.</p>
+              </div>
+              <div class="panel">
+                <a href="full-stack-development.html" title="Explore Full Stack Development">
+                  <i class="fas fa-code"></i>
+                </a>
+                <h4>Full Stack Development</h4>
+                <p>Integrate third-party systems into your CRM, creating a unified, end-to-end solution.</p>
+              </div>
+            </div>
+          </div>
+          <a class="active" href="work.html">Work</a>
+          <a href="process.html">Our Process</a>
+          <a href="company.html">Company</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="contact-wrapper">
+          <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-solid-wrapper">
+    <div class="hero-content">
+      <h1><i class="fa-solid fa-briefcase"></i> Our Work</h1>
+      <p class="hero-subhead">A few engagements that show how we build for outcomes.</p>
+      <p class="hero-message">From CRM-led transformation to web/mobile integration and AI utilization, we deliver systems that scale and teams that ship.</p>
+      <div class="cta">
+        <a href="#projects" class="btn">Browse Projects</a>
+        <a href="#contact" class="btn btn-outline">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="solid-separator"></div>
+
+  <main>
+    <!-- FILTERS -->
+    <section class="why-crm light-theme" id="projects">
+      <h2>Case Studies</h2>
+      <p>Filter by focus area.</p>
+      <div id="filters" style="margin-top:1rem; display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-outline" data-filter="all">All</button>
+        <button class="btn btn-outline" data-filter="crm">CRM</button>
+        <button class="btn btn-outline" data-filter="integration">WEB / Mobile</button>
+        <button class="btn btn-outline" data-filter="ai">AI</button>
+        <button class="btn btn-outline" data-filter="fullstack">Full Stack</button>
+      </div>
+
+      <!-- PROJECT GRID -->
+      <div class="deliver-grid" id="projectGrid" style="margin-top:2rem;">
+        <!-- Project 1 -->
+        <article class="card project" data-tags="crm integration">
+          <h3 class="card-highlight">Unified CRM Rollout</h3>
+          <p>Replaced fragmented tooling with a single CRM, automated workflows, and trained cross-functional teams. 
+          <br><strong>Stack:</strong> Dynamics/Power Platform, Azure Functions, Service Bus</p>
+          <a href="#" class="learn-more">Read more</a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card project" data-tags="integration fullstack">
+          <h3 class="card-highlight">Web + Mobile Integration</h3>
+          <p>Connected marketing site + mobile app to CRM with SSO and real-time data sync.
+          <br><strong>Stack:</strong> Next.js, React Native, OAuth, GraphQL Gateway</p>
+          <a href="#" class="learn-more">Read more</a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card project" data-tags="ai crm">
+          <h3 class="card-highlight">AI-Assisted Sales Ops</h3>
+          <p>Tagging, lead scoring, and forecasting with GenAI prompts grounded in CRM data.
+          <br><strong>Stack:</strong> Azure OpenAI, Functions, Dataverse</p>
+          <a href="#" class="learn-more">Read more</a>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card project" data-tags="fullstack">
+          <h3 class="card-highlight">Custom Portal</h3>
+          <p>Self-service customer portal with payments, support, and content gating.
+          <br><strong>Stack:</strong> Node/Express, Postgres, Stripe, Vue</p>
+          <a href="#" class="learn-more">Read more</a>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="card project" data-tags="integration">
+          <h3 class="card-highlight">Data Pipeline Modernization</h3>
+          <p>Batch → event-driven architecture, observability, and retryable workflows.
+          <br><strong>Stack:</strong> Kafka, Azure Service Bus, Snowflake</p>
+          <a href="#" class="learn-more">Read more</a>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="card project" data-tags="crm fullstack">
+          <h3 class="card-highlight">Support Experience Revamp</h3>
+          <p>Case deflection, SLA automation, and knowledge base UX overhaul.
+          <br><strong>Stack:</strong> Salesforce Service Cloud, LWC</p>
+          <a href="#" class="learn-more">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL STRIP -->
+    <section class="testimonials">
+      <h2>What Clients Say</h2>
+      <div class="testimonial-card" style="max-width:760px;margin:1rem auto;">
+        <p>“BGCW delivered our CRM rollout on time and under budget — and the training made adoption painless.”</p>
+        <strong>— VP of Ops, HealthTech Co.</strong>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <p>© 2025 All rights reserved. Designed in the HEAT in Scottsdale, AZ</p>
+  </footer>
+
+  <script>
+    // Expertise dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+      const expertiseToggle = document.getElementById('expertise-toggle');
+      if (expertiseToggle) {
+        const navItem = expertiseToggle.closest('.nav-item');
+        expertiseToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          navItem.classList.toggle('active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!navItem.contains(e.target)) navItem.classList.remove('active');
+        });
+      }
+
+      // Simple client-side filtering
+      const buttons = document.querySelectorAll('#filters .btn');
+      const projects = document.querySelectorAll('.project');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          projects.forEach(p => {
+            const tags = (p.getAttribute('data-tags') || '').split(' ');
+            const show = filter === 'all' || tags.includes(filter);
+            p.style.display = show ? '' : 'none';
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

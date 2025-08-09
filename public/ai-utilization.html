@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AI Utilization" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>AI Utilization</title>
+</head>
+<body>
+
+  <!-- HEADER with Expertise dropdown -->
+  <header class="site-header absolute-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">/* BlueGrass CodeWorks */</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <div class="nav-item has-dropdown">
+            <a href="#" id="expertise-toggle" class="active">Expertise <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-panel" id="expertise-dropdown">
+              <div class="panel" data-page="crm-transformation.html">
+                <a href="crm-transformation.html" title="CRM Transformation">
+                  <i class="fas fa-sync-alt"></i>
+                </a>
+                <h4>CRM for DIGITAL TRANSFORMATION</h4>
+                <p>Centralize customer relationships, automate workflows, and drive growth through tailored CRM platforms.</p>
+              </div>
+              <div class="panel" data-page="web-mobile-integration.html">
+                <a href="web-mobile-integration.html" title="Web & Mobile Integration">
+                  <i class="fas fa-mobile-alt"></i>
+                </a>
+                <h4>WEB and MOBILE Integration</h4>
+                <p>Connect CRM, marketing, and backend systems to your website and mobile apps for seamless engagement.</p>
+              </div>
+              <div class="panel" data-page="ai-utilization.html">
+                <a href="ai-utilization.html" title="AI Utilization">
+                  <i class="fas fa-brain"></i>
+                </a>
+                <h4>AI Utilization</h4>
+                <p>Use ML and GenAI for predictions, insights, and efficiency.</p>
+              </div>
+              <div class="panel" data-page="full-stack-development.html">
+                <a href="full-stack-development.html" title="Full Stack Development">
+                  <i class="fas fa-code"></i>
+                </a>
+                <h4>Full Stack Development</h4>
+                <p>Unify systems end‑to‑end with robust integrations.</p>
+              </div>
+            </div>
+          </div>
+          <a href="work.html">Work</a>
+          <a href="process.html">Our Process</a>
+          <a href="company.html">Company</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="contact-wrapper">
+          <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-solid-wrapper">
+    <div class="hero-content">
+      <h1>AI Utilization</h1>
+      <p class="hero-subhead">From ideas to measurable impact.</p>
+      <p class="hero-message">Leverage machine learning and generative AI responsibly — grounded in your domain data — to improve predictions, customer insights, and operational efficiency.</p>
+      <div class="cta">
+        <a href="#" class="btn">Explore Solutions</a>
+        <a href="#" class="btn btn-outline">Let’s Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="solid-separator"></div>
+
+  <main>
+    <section class="why-crm light-theme">
+      <h2>AI that Serves the Business</h2>
+      <p>Start small, measure quickly, and scale what works. We focus on practical automations, grounded prompting, and responsible use.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 All rights reserved. Designed in the HEAT in Scottsdale, AZ</p>
+  </footer>
+
+  <!-- Dropdown toggle + You’re Here badge script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('expertise-toggle');
+  if (!toggle) return;
+
+  const navItem = toggle.closest('.nav-item');
+  const panel = navItem?.querySelector('.dropdown-panel');
+
+  // Open/close on click
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();                 // <-- keep document handler from firing
+    navItem.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', navItem.classList.contains('active'));
+  });
+
+  // Prevent clicks inside panel from bubbling up to document
+  panel?.addEventListener('click', (e) => e.stopPropagation());
+
+  // Close when clicking anywhere outside the dropdown
+  document.addEventListener('click', (e) => {
+    if (!navItem.contains(e.target)) {
+      navItem.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Current-page indicator (⭐ + tooltip)
+  const currentPage = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.dropdown-panel .panel').forEach(p => {
+  if (p.dataset.page === currentPage) {
+    // remove any legacy text badge or icon
+    p.querySelector('.panel-badge')?.remove();
+    p.querySelector('.panel-icon-selected')?.remove();
+
+    // highlight the panel background
+    p.classList.add('panel-selected');
+
+    // disable link click
+    const link = p.querySelector('a');
+    if (link) {
+      link.removeAttribute('href');
+      link.style.cursor = 'default';
+    }
+  }
+  });
+});
+</script>
+</body>
+</html>
+
