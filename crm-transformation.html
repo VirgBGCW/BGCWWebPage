@@ -141,54 +141,7 @@
   </footer>
 
   <!-- Dropdown toggle + You’re Here badge script -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('expertise-toggle');
-  if (!toggle) return;
-
-  const navItem = toggle.closest('.nav-item');
-  const panel = navItem?.querySelector('.dropdown-panel');
-
-  // Open/close on click
-  toggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();                 // <-- keep document handler from firing
-    navItem.classList.toggle('active');
-    toggle.setAttribute('aria-expanded', navItem.classList.contains('active'));
-  });
-
-  // Prevent clicks inside panel from bubbling up to document
-  panel?.addEventListener('click', (e) => e.stopPropagation());
-
-  // Close when clicking anywhere outside the dropdown
-  document.addEventListener('click', (e) => {
-    if (!navItem.contains(e.target)) {
-      navItem.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Current-page indicator (⭐ + tooltip)
-  const currentPage = window.location.pathname.split('/').pop();
-  document.querySelectorAll('.dropdown-panel .panel').forEach(p => {
-  if (p.dataset.page === currentPage) {
-    // remove any legacy text badge or icon
-    p.querySelector('.panel-badge')?.remove();
-    p.querySelector('.panel-icon-selected')?.remove();
-
-    // highlight the panel background
-    p.classList.add('panel-selected');
-
-    // disable link click
-    const link = p.querySelector('a');
-    if (link) {
-      link.removeAttribute('href');
-      link.style.cursor = 'default';
-    }
-  }
-  });
-});
-</script>
+<script src="site.js" defer></script>
 </body>
 </html>
 
