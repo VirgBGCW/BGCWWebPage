@@ -15,6 +15,55 @@
   <header class="site-header absolute-header">
     <div class="nav-container">
       <a href="index.html" class="logo">/* BlueGrass CodeWorks */</a>
+      <button
+  class="hamburger"
+  aria-label="Open menu"
+  aria-controls="mobile-drawer"
+  aria-expanded="false"
+>
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<!-- Mobile drawer (hidden by default) -->
+<nav id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer-inner">
+    <button class="drawer-close" aria-label="Close menu">×</button>
+
+    <!-- Mobile Expertise (simple collapsible) -->
+    <details class="mobile-exp">
+      <summary>Expertise</summary>
+      <div class="mobile-panels">
+        <a class="mobile-panel" href="crm-transformation.html">
+          <i class="fas fa-sync-alt" aria-hidden="true"></i>
+          <span>CRM for DIGITAL TRANSFORMATION</span>
+        </a>
+        <a class="mobile-panel" href="web-mobile-integration.html">
+          <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+          <span>WEB and MOBILE Integration</span>
+        </a>
+        <a class="mobile-panel" href="ai-utilization.html">
+          <i class="fas fa-brain" aria-hidden="true"></i>
+          <span>AI Utilization</span>
+        </a>
+        <a class="mobile-panel" href="full-stack-development.html">
+          <i class="fas fa-code" aria-hidden="true"></i>
+          <span>Full Stack Development</span>
+        </a>
+      </div>
+    </details>
+
+    <a href="work.html" class="mobile-link">Work</a>
+    <a href="process.html" class="mobile-link">Our Process</a>
+    <a href="company.html" class="mobile-link">Company</a>
+    <a href="blog.html" class="mobile-link">Blog</a>
+
+    <a href="#" class="contact-btn mobile-cta" aria-label="Contact BlueGrass CodeWorks">
+      Contact Us
+    </a>
+  </div>
+</nav>
       <nav class="main-nav">
         <div class="nav-links">
           <div class="nav-item has-dropdown">
@@ -174,39 +223,7 @@
   </div>
 
   <!-- Scripts -->
-  <script>
-    // Expertise dropdown (same behavior as index)
-    document.addEventListener('DOMContentLoaded', () => {
-      const expertiseToggle = document.getElementById('expertise-toggle');
-      if (expertiseToggle) {
-        const navItem = expertiseToggle.closest('.nav-item');
-        expertiseToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          navItem.classList.toggle('active');
-        });
-        document.addEventListener('click', (e) => {
-          if (!navItem.contains(e.target)) navItem.classList.remove('active');
-        });
-      }
-
-      // Team modal
-      document.querySelectorAll('.team-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const modal = document.getElementById('teamModal');
-          document.getElementById('modalName').textContent = card.dataset.name || '';
-          document.getElementById('modalRole').textContent = card.dataset.role || '';
-          document.getElementById('modalBio').textContent  = card.dataset.bio || '';
-          modal.style.display = 'block';
-        });
-      });
-      document.getElementById('modalClose').addEventListener('click', () => {
-        document.getElementById('teamModal').style.display = 'none';
-      });
-      document.getElementById('teamModal').addEventListener('click', (e) => {
-        if (e.target.id === 'teamModal') e.currentTarget.style.display = 'none';
-      });
-    });
-  </script>
+<script src="site.js" defer></script>
 
   <footer class="site-footer">
     <p>© 2025 All rights reserved. Designed in the HEAT in Scottsdale, AZ</p>

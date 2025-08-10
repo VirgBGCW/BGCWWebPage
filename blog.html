@@ -15,6 +15,55 @@
   <header class="site-header absolute-header">
     <div class="nav-container">
       <a href="index.html" class="logo">/* BlueGrass CodeWorks */</a>
+      <button
+  class="hamburger"
+  aria-label="Open menu"
+  aria-controls="mobile-drawer"
+  aria-expanded="false"
+>
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<!-- Mobile drawer (hidden by default) -->
+<nav id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer-inner">
+    <button class="drawer-close" aria-label="Close menu">×</button>
+
+    <!-- Mobile Expertise (simple collapsible) -->
+    <details class="mobile-exp">
+      <summary>Expertise</summary>
+      <div class="mobile-panels">
+        <a class="mobile-panel" href="crm-transformation.html">
+          <i class="fas fa-sync-alt" aria-hidden="true"></i>
+          <span>CRM for DIGITAL TRANSFORMATION</span>
+        </a>
+        <a class="mobile-panel" href="web-mobile-integration.html">
+          <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+          <span>WEB and MOBILE Integration</span>
+        </a>
+        <a class="mobile-panel" href="ai-utilization.html">
+          <i class="fas fa-brain" aria-hidden="true"></i>
+          <span>AI Utilization</span>
+        </a>
+        <a class="mobile-panel" href="full-stack-development.html">
+          <i class="fas fa-code" aria-hidden="true"></i>
+          <span>Full Stack Development</span>
+        </a>
+      </div>
+    </details>
+
+    <a href="work.html" class="mobile-link">Work</a>
+    <a href="process.html" class="mobile-link">Our Process</a>
+    <a href="company.html" class="mobile-link">Company</a>
+    <a href="blog.html" class="mobile-link">Blog</a>
+
+    <a href="#" class="contact-btn mobile-cta" aria-label="Contact BlueGrass CodeWorks">
+      Contact Us
+    </a>
+  </div>
+</nav>
       <nav class="main-nav">
         <div class="nav-links">
           <div class="nav-item has-dropdown">
@@ -154,59 +203,6 @@
   <footer class="site-footer">
     <p>© 2025 All rights reserved. Designed in the HEAT in Scottsdale, AZ</p>
   </footer>
-
-  <script>
-    // Expertise dropdown
-    document.addEventListener('DOMContentLoaded', () => {
-      const expertiseToggle = document.getElementById('expertise-toggle');
-      if (expertiseToggle) {
-        const navItem = expertiseToggle.closest('.nav-item');
-        expertiseToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          navItem.classList.toggle('active');
-        });
-        document.addEventListener('click', (e) => {
-          if (!navItem.contains(e.target)) navItem.classList.remove('active');
-        });
-      }
-
-      // Search & filter
-      const buttons = document.querySelectorAll('#filters .btn');
-      const posts = document.querySelectorAll('.post');
-      const search = document.getElementById('search');
-
-      function applyFilters() {
-        const active = document.querySelector('#filters .btn.active');
-        const filter = active ? active.getAttribute('data-filter') : 'all';
-        const q = (search.value || '').toLowerCase();
-        posts.forEach(p => {
-          const tags = (p.getAttribute('data-tags') || '').split(' ');
-          const title = (p.getAttribute('data-title') || '').toLowerCase();
-          const matchesTag = filter === 'all' || tags.includes(filter);
-          const matchesSearch = !q || title.includes(q) || p.textContent.toLowerCase().includes(q);
-          p.style.display = (matchesTag && matchesSearch) ? '' : 'none';
-        });
-      }
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          buttons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          applyFilters();
-        });
-      });
-
-      search.addEventListener('input', applyFilters);
-      applyFilters();
-
-      // Subscribe UX
-      const form = document.getElementById('subscribeForm');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thanks! You\'re subscribed.');
-        form.reset();
-      });
-    });
-  </script>
+<script src="site.js" defer></script>
 </body>
 </html>
