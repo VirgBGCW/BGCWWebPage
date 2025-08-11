@@ -728,42 +728,98 @@ section h2 { font-size: 2em; margin-bottom: .5em; color: inherit; }
   border-color: #2f4d78; /* accent-blue for better contrast on white */
 }
 
-/* Remove the Stack line entirely */
-#projectGrid .card p strong {
-  display: none;
-}
-
-/* Ensure each project card can host the icon + tooltip */
-#projectGrid .project {
-  position: relative;
-}
-
-/* Show a single category icon at the bottom of each project card */
-
-@keyframes fadeIn { to { opacity: 1; } }
-
-/* Tag → icon + tooltip mapping */
-
-
-/* Icon row styling */
-.stack-icons {
-  display: flex;
-  justify-content: center;
-  gap: .6rem;
-  margin-top: auto;
-  margin-bottom: .8rem;
-}
-
-.stack-icons i {
-  font-size: 1.3rem;
+/* Base style for all stack icons */
+/* Base style for all stack icons */
+#projectGrid .card p strong::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
   color: var(--primary-color);
-  transition: transform .2s ease, opacity .2s ease;
+  position: relative;
   cursor: pointer;
 }
 
-.stack-icons i:hover {
-  transform: translateY(-2px);
-  opacity: .8;
+/* Tooltip styling */
+#projectGrid .card p strong::before:hover::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 125%; /* above icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
 }
+
+/* Little tooltip arrow */
+#projectGrid .card p strong::before:hover::before {
+  content: '';
+}
+
+/* Hover fade-in animation */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* CRM icon + label */
+#projectGrid .project[data-tags*="crm"] p strong::before {
+  content: "\f509"; /* fa-users-gear */
+}
+#projectGrid .project[data-tags*="crm"] p strong::before {
+  --label: "CRM";
+}
+#projectGrid .project[data-tags*="crm"] p strong::before:hover::after {
+  content: "CRM";
+}
+
+/* Mobile icon + label */
+#projectGrid .project[data-tags*="mobile"] p strong::before {
+  content: "\f3cd"; /* fa-mobile-screen-button */
+}
+#projectGrid .project[data-tags*="mobile"] p strong::before:hover::after {
+  content: "Mobile";
+}
+
+/* Web icon + label */
+#projectGrid .project[data-tags*="integration"] p strong::before {
+  content: "\f0ac"; /* fa-globe */
+}
+#projectGrid .project[data-tags*="integration"] p strong::before:hover::after {
+  content: "Web";
+}
+
+/* AI icon + label */
+#projectGrid .project[data-tags*="ai"] p strong::before {
+  content: "\f5dc"; /* fa-brain */
+}
+#projectGrid .project[data-tags*="ai"] p strong::before:hover::after {
+  content: "AI";
+}
+
+/* Full Stack icon + label */
+#projectGrid .project[data-tags*="fullstack"] p strong::before {
+  content: "\f121"; /* fa-code */
+}
+#projectGrid .project[data-tags*="fullstack"] p strong::before:hover::after {
+  content: "Full Stack";
+}
+
+/* Keep dotted separator */
+#projectGrid .card p strong {
+  display: block;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dotted var(--primary-color);
+  text-align: center;
+}
+
 
 

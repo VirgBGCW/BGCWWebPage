@@ -1,35 +1,44 @@
 // site.js
-
 document.addEventListener('DOMContentLoaded', () => {
   /* =========================
-     Expertise dropdown (ARIA + keyboard)
+     Shared: path + page map
   ========================== */
-  const toggle = document.getElementById('expertise-toggle');
+  const currentPath = window.location.pathname.toLowerCase();
+  const expertisePages = {
+    "crm-transformation.html": "CRM for DIGITAL TRANSFORMATION",
+    "web-mobile-integration.html": "WEB and MOBILE Integration",
+    "ai-utilization.html": "AI Utilization",
+    "full-stack-development.html": "Full Stack Development"
+  };
+
+  /* =========================
+     Expertise dropdown (desktop)
+  ========================== */
+  const toggle  = document.getElementById('expertise-toggle');
   const navItem = toggle?.closest('.nav-item');
-  const panel = document.getElementById('expertise-dropdown');
+  const panel   = document.getElementById('expertise-dropdown');
 
   if (toggle && navItem && panel) {
-    // ARIA wiring
     toggle.setAttribute('role', 'button');
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     panel.setAttribute('role', 'menu');
 
-    const open = () => { navItem.classList.add('active'); toggle.setAttribute('aria-expanded', 'true'); };
+    const open  = () => { navItem.classList.add('active');  toggle.setAttribute('aria-expanded', 'true'); };
     const close = () => { navItem.classList.remove('active'); toggle.setAttribute('aria-expanded', 'false'); };
     const isOpen = () => navItem.classList.contains('active');
 
-    // Click / touch
+    // Click
     toggle.addEventListener('click', (e) => { e.preventDefault(); isOpen() ? close() : open(); });
 
-    // Keyboard on toggle
+    // Keyboard
     toggle.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
       if (e.key === 'Escape') { close(); toggle.focus(); }
       if (e.key === 'ArrowDown') { e.preventDefault(); open(); panel.querySelector('a,button,[tabindex]')?.focus(); }
     });
 
-    // Close on outside click / Escape anywhere
+    // Outside click / Esc
     document.addEventListener('click', (e) => { if (!navItem.contains(e.target)) close(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   }
@@ -52,108 +61,95 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        // active state
         buttons.forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
-
         applyFilter(btn.getAttribute('data-filter') || 'all');
       });
     });
 
-    // Optional: default to 'all'
-    const defaultBtn = filterBar.querySelector('.btn[data-filter="all"]') || buttons[0];
-    defaultBtn?.click();
+    (filterBar.querySelector('.btn[data-filter="all"]') || buttons[0])?.click();
   }
-/* ligh panel */
-// Highlight current page in Expertise dropdown
-const currentPath = window.location.pathname.toLowerCase();
-
-// Map page filenames to dropdown panel selectors
-const expertisePages = {
-  "crm-transformation.html": "CRM for DIGITAL TRANSFORMATION",
-  "web-mobile-integration.html": "WEB and MOBILE Integration",
-  "ai-utilization.html": "AI Utilization",
-  "full-stack-development.html": "Full Stack Development"
-};
-
-// Find which matches the current URL
-Object.keys(expertisePages).forEach(file => {
-  if (currentPath.endsWith(file)) {
-    const panels = document.querySelectorAll('#expertise-dropdown .panel');
-    panels.forEach(panel => {
-      const heading = panel.querySelector("h4")?.textContent.trim();
-      if (heading === expertisePages[file]) {
-        panel.classList.add("current-page");
-      }
-    });
-  }
-});
 
   /* =========================
-     Minor: prevent # links jumping to top for CTA placeholders
+     Highlight current page in Expertise (desktop)
+  ========================== */
+  Object.keys(expertisePages).forEach(file => {
+    if (currentPath.endsWith(file)) {
+      document.querySelectorAll('#expertise-dropdown .panel').forEach(p => {
+        const heading = p.querySelector('h4')?.textContent.trim();
+        if (heading === expertisePages[file]) p.classList.add('current-page');
+      });
+    }
+  });
+
+  /* =========================
+     Prevent "#" jumps (CTA placeholders)
   ========================== */
   document.querySelectorAll('a[href="#"]').forEach(a => {
     a.addEventListener('click', (e) => e.preventDefault());
   });
-});
-// MOBILE NAV
-(function () {
+
+  /* =========================
+     Mobile drawer
+  ========================== */
   const hamburger = document.querySelector('.hamburger');
-  const drawer = document.getElementById('mobile-drawer');
-  const closeBtn = drawer?.querySelector('.drawer-close');
+  const drawer    = document.getElementById('mobile-drawer');
+  const closeBtn  = drawer?.querySelector('.drawer-close');
+  const drawerInner = drawer?.querySelector('.mobile-drawer-inner');
+  const focusables = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let lastFocusedBeforeOpen = null;
 
-  if (!hamburger || !drawer) return;
+  if (hamburger && drawer) {
+    const open = () => {
+      lastFocusedBeforeOpen = document.activeElement;
+      drawer.classList.add('is-open');
+      hamburger.classList.add('is-active');
+      drawer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('body-locked');
+      drawer.querySelector(focusables)?.focus();
+    };
 
-  const open = () => {
-    drawer.classList.add('is-open');
-    hamburger.classList.add('is-active');
-    drawer.setAttribute('aria-hidden', 'false');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('body-locked');
-  };
+    const close = () => {
+      drawer.classList.remove('is-open');
+      hamburger.classList.remove('is-active');
+      drawer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('body-locked');
+      lastFocusedBeforeOpen?.focus?.() || hamburger.focus();
+    };
 
-  const close = () => {
-    drawer.classList.remove('is-open');
-    hamburger.classList.remove('is-active');
-    drawer.setAttribute('aria-hidden', 'true');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('body-locked');
-    hamburger.focus();
-  };
+    hamburger.addEventListener('click', () => {
+      drawer.classList.contains('is-open') ? close() : open();
+    });
 
-  // Toggle with button
-  hamburger.addEventListener('click', () => {
-    const isOpen = drawer.classList.contains('is-open');
-    isOpen ? close() : open();
-  });
+    closeBtn?.addEventListener('click', close);
 
-  // Close button
-  closeBtn?.addEventListener('click', close);
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+    });
 
-  // Close on ESC or click outside
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
-  });
-  document.addEventListener('click', (e) => {
-    if (!drawer.contains(e.target) && !hamburger.contains(e.target) && drawer.classList.contains('is-open')) {
-      close();
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!drawer.classList.contains('is-open')) return;
+      if (!drawerInner?.contains(e.target) && !hamburger.contains(e.target)) close();
+    });
+
+    // Close when any link inside is clicked
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  }
+
+  /* =========================
+     Highlight current page in Expertise (mobile)
+  ========================== */
+  Object.keys(expertisePages).forEach(file => {
+    if (currentPath.endsWith(file)) {
+      document.querySelectorAll('.mobile-panel').forEach(link => {
+        const text = link.querySelector('span')?.textContent.trim();
+        if (text === expertisePages[file]) link.classList.add('current-page');
+      });
     }
   });
-
-  // Optional: close when a mobile link is clicked
-  drawer.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => { close(); });
-  });
-})();
-// Also highlight mobile Expertise links
-Object.keys(expertisePages).forEach(file => {
-  if (currentPath.endsWith(file)) {
-    const mobileLinks = document.querySelectorAll('.mobile-panel');
-    mobileLinks.forEach(link => {
-      const text = link.querySelector("span")?.textContent.trim();
-      if (text === expertisePages[file]) {
-        link.classList.add("current-page");
-      }
-    });
-  }
 });
+
