@@ -499,3 +499,16 @@ section h2 { font-size: 2em; margin-bottom: .5em; color: inherit; }
   .nav-links, .contact-wrapper { display: none; }
   .hamburger { display: inline-block; }
 }
+/* LOGO */
+/* reuse your existing glowPulse keyframes */
+.glow-logo {
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+/* optional: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glow-logo {
+    animation: none;
+    text-shadow: 0 0 10px rgba(255,255,255,.6); /* static subtle glow */
+  }
+}
