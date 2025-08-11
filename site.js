@@ -64,6 +64,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const defaultBtn = filterBar.querySelector('.btn[data-filter="all"]') || buttons[0];
     defaultBtn?.click();
   }
+/* ligh panel */
+// Highlight current page in Expertise dropdown
+const currentPath = window.location.pathname.toLowerCase();
+
+// Map page filenames to dropdown panel selectors
+const expertisePages = {
+  "crm-transformation.html": "CRM for DIGITAL TRANSFORMATION",
+  "web-mobile-integration.html": "WEB and MOBILE Integration",
+  "ai-utilization.html": "AI Utilization",
+  "full-stack-development.html": "Full Stack Development"
+};
+
+// Find which matches the current URL
+Object.keys(expertisePages).forEach(file => {
+  if (currentPath.endsWith(file)) {
+    const panels = document.querySelectorAll('#expertise-dropdown .panel');
+    panels.forEach(panel => {
+      const heading = panel.querySelector("h4")?.textContent.trim();
+      if (heading === expertisePages[file]) {
+        panel.classList.add("current-page");
+      }
+    });
+  }
+});
 
   /* =========================
      Minor: prevent # links jumping to top for CTA placeholders
@@ -121,3 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
     a.addEventListener('click', () => { close(); });
   });
 })();
+// Also highlight mobile Expertise links
+Object.keys(expertisePages).forEach(file => {
+  if (currentPath.endsWith(file)) {
+    const mobileLinks = document.querySelectorAll('.mobile-panel');
+    mobileLinks.forEach(link => {
+      const text = link.querySelector("span")?.textContent.trim();
+      if (text === expertisePages[file]) {
+        link.classList.add("current-page");
+      }
+    });
+  }
+});

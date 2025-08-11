@@ -512,3 +512,32 @@ section h2 { font-size: 2em; margin-bottom: .5em; color: inherit; }
     text-shadow: 0 0 10px rgba(255,255,255,.6); /* static subtle glow */
   }
 }
+/* Desktop Expertise: selected panel matches Work card styling */
+.dropdown-panel .panel.current-page {
+  background: linear-gradient(135deg, #e7ecf3, #dbe3ed); /* same as .card */
+  border: 1px solid #c4d0de;                              /* same as .card */
+  color: var(--primary-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);                 /* optional: same vibe */
+}
+
+/* Ensure inner text + icon colors flip to primary blue */
+.dropdown-panel .panel.current-page h4,
+.dropdown-panel .panel.current-page p,
+.dropdown-panel .panel.current-page i,
+.dropdown-panel .panel.current-page a {
+  color: var(--primary-color) !important;
+}
+
+/* Mobile Expertise: selected link matches Work card styling */
+.mobile-panel.current-page {
+  background: linear-gradient(135deg, #e7ecf3, #dbe3ed);
+  border: 1px solid #c4d0de;
+  color: var(--primary-color);
+}
+
+.mobile-panel.current-page i {
+  color: var(--primary-color) !important;
+}
+
+
+
