@@ -765,5 +765,24 @@ section h2 { font-size: 2em; margin-bottom: .5em; color: inherit; }
   transform: translateY(-2px);
   opacity: .8;
 }
+.work-panel img {
+  display: block;
+  margin-top: 1rem; /* space between any content above and the dotted line */
+  padding-top: 1rem; /* space between line and image */
+  border-top: 2px dotted white; /* or your desired color */
+}
 
+/* Remove the dashed line under title/paragraph in work cards */
+#projectGrid .card .card-highlight + p {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0.35rem; /* keep a little space after the heading */
+}
+
+/* Add dotted line only above stack icons */
+#projectGrid .stack-icons {
+  border-top: 2px dotted var(--primary-color);
+  padding-top: 0.75rem; /* space between line and icons */
+  margin-top: 1rem; /* space after paragraph before line */
+}
 
