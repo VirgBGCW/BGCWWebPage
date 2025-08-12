@@ -785,4 +785,25 @@ section h2 { font-size: 2em; margin-bottom: .5em; color: inherit; }
   padding-top: 0.75rem; /* space between line and icons */
   margin-top: 1rem; /* space after paragraph before line */
 }
+/* Modal shell */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; z-index: 1000; }
+.modal.open { display: block; }
+
+/* Card */
+.modal-card {
+  max-width: 560px; margin: 10vh auto; background: var(--primary-color,#1b2e4b);
+  color: #fff; border: 2px solid #fff; border-radius: 16px; padding: 1.25rem; position: relative;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute; top: .5rem; right: .5rem; background: transparent; border: 0; color: #fff;
+  font-size: 1.25rem; cursor: pointer;
+}
+
+/* Header layout */
+.modal-header { display: grid; grid-template-columns: 96px 1fr; gap: 1rem; align-items: center; margin-bottom: .75rem; }
+.modal-header img { width: 96px; height: 96px; border-radius: 9999px; border: 2px solid #fff; object-fit: cover; object-position: center; }
+.modal-role { color: #d4ddee; margin-top: .25rem; }
+.modal-bio { line-height: 1.55; }
 

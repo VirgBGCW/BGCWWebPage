@@ -153,3 +153,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('teamModal');
+  const modalCard = modal?.querySelector('.modal-card');
+  const modalClose = document.getElementById('modalClose');
+  const modalName  = document.getElementById('modalName');
+  const modalRole  = document.getElementById('modalRole');
+  const modalBio   = document.getElementById('modalBio');
+  const modalAvatar= document.getElementById('modalAvatar');
+
+  if (!modal) return;
+
+  const openModal = ({ name, role, bio, imgSrc, imgAlt }) => {
+    modalName.textContent = name || '';
+    modalRole.textContent = role || '';
+    modalBio.textContent  = bio  || '';
+    modalAvatar.src = imgSrc || '';
+    modalAvatar.alt = imgAlt || name || 'Team member';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  };
+
+  // Click on any team card to open
+  document.querySelectorAll('.team-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.dataset.name || card.querySelector('h3')?.textContent?.trim();
+      const role = card.dataset.role || card.querySelector('.text-muted')?.textContent?.trim();
+      const bio  = card.dataset.bio  || '';
+      const img  = card.querySelector('img');
+      openModal({
+        name, role, bio,
+        imgSrc: img?.getAttribute('src'),
+        imgAlt: img?.getAttribute('alt') || name
+      });
+    });
+  });
+
+  // Close controls
+  modalClose?.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+});

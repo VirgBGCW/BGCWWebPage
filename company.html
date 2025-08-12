@@ -211,17 +211,22 @@
       </div>
     </section>
   </main>
+  <!-- Team Modal -->
+<div id="teamModal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
 
-  <!-- Modal (lightweight) -->
-  <div id="teamModal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:1000;">
-    <div class="modal-card" style="max-width:560px; margin:10vh auto; background:var(--primary-color); color:white; border:2px solid white; border-radius:14px; padding:1.5rem;">
-      <button id="modalClose" aria-label="Close" style="float:right; background:transparent; border:0; color:white; font-size:1.25rem; cursor:pointer;">✕</button>
-      <h3 id="modalName" style="margin-top:.25rem;"></h3>
-      <p id="modalRole" class="text-muted" style="margin:.25rem 0 1rem; color:#d4ddee;"></p>
-      <p id="modalBio"></p>
+    <div class="modal-header">
+      <img id="modalAvatar" alt="" />
+      <div>
+        <h3 id="modalName"></h3>
+        <p id="modalRole" class="modal-role"></p>
+      </div>
     </div>
-  </div>
 
+    <p id="modalBio" class="modal-bio"></p>
+  </div>
+</div>
   <!-- Scripts -->
 <script src="site.js" defer></script>
 
