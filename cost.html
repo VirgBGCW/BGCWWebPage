@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="BlueGrass CodeWorks — Pricing, engagement models, and how we estimate" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Cost — BlueGrass CodeWorks</title>
+</head>
+<body>
+
+  <!-- HEADER (match other pages) -->
+  <header class="site-header absolute-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">/* BlueGrass CodeWorks */</a>
+
+      <button
+        class="hamburger"
+        aria-label="Open menu"
+        aria-controls="mobile-drawer"
+        aria-expanded="false"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <!-- Mobile drawer -->
+      <nav id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-inner">
+          <button class="drawer-close" aria-label="Close menu">×</button>
+
+          <details class="mobile-exp">
+            <summary>Expertise</summary>
+            <div class="mobile-panels">
+              <a class="mobile-panel" href="crm-transformation.html">
+                <i class="fas fa-users-gear" aria-hidden="true"></i>
+                <span>CRM for DIGITAL TRANSFORMATION</span>
+              </a>
+              <a class="mobile-panel" href="web-mobile-integration.html">
+                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                <span>WEB and MOBILE Integration</span>
+              </a>
+              <a class="mobile-panel" href="ai-utilization.html">
+                <i class="fas fa-brain" aria-hidden="true"></i>
+                <span>AI Utilization</span>
+              </a>
+              <a class="mobile-panel" href="full-stack-development.html">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>Full Stack Development</span>
+              </a>
+            </div>
+          </details>
+
+          <a href="work.html" class="mobile-link">Work</a>
+          <a href="process.html" class="mobile-link">Our Process</a>
+          <a href="cost.html" class="mobile-link active">Cost</a>
+          <a href="company.html" class="mobile-link">Company</a>
+          <a href="blog.html" class="mobile-link">Blog</a>
+
+          <a href="#contact" class="contact-btn mobile-cta" aria-label="Contact BlueGrass CodeWorks">
+            Contact Us
+          </a>
+        </div>
+      </nav>
+
+      <nav class="main-nav">
+        <div class="nav-links">
+          <div class="nav-item has-dropdown">
+            <a href="#" id="expertise-toggle">Expertise <span class="dropdown-arrow">▾</span></a>
+            <div class="dropdown-panel" id="expertise-dropdown">
+              <div class="panel">
+                <a href="crm-transformation.html" title="Learn more about CRM Transformation">
+                  <i class="fas fa-users-gear"></i>
+                </a>
+                <h4>CRM for DIGITAL TRANSFORMATION</h4>
+                <p>Centralize customer relationships, automate workflows, and drive growth through tailored CRM platforms — all from a single, unified solution.</p>
+              </div>
+              <div class="panel">
+                <a href="web-mobile-integration.html" title="Explore Web and Mobile Integration">
+                  <i class="fas fa-mobile-alt"></i>
+                </a>
+                <h4>WEB and MOBILE Integration</h4>
+                <p>Connect your CRM, marketing, and backend systems to your website and mobile apps for seamless customer engagement.</p>
+              </div>
+              <div class="panel">
+                <a href="ai-utilization.html" title="Explore AI Utilization">
+                  <i class="fas fa-brain"></i>
+                </a>
+                <h4>AI Utilization</h4>
+                <p>Leverage machine learning and generative AI to improve predictions, customer insights, and process efficiency.</p>
+              </div>
+              <div class="panel">
+                <a href="full-stack-development.html" title="Explore Full Stack Development">
+                  <i class="fas fa-code"></i>
+                </a>
+                <h4>Full Stack Development</h4>
+                <p>With Full Stack Development, you gain the ability to seamlessly integrate third-party systems into your CRM, creating a unified, end-to-end solution that supports your entire business workflow.</p>
+              </div>
+            </div>
+          </div>
+          <a href="work.html">Work</a>
+          <a href="process.html">Our Process</a>
+          <a class="active" href="cost.html">Cost</a>
+          <a href="company.html">Company</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="contact-wrapper">
+          <a href="#contact" class="contact-btn">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-solid-wrapper">
+    <div class="hero-content">
+      <h1><i class="fa-solid fa-tags"></i> Cost</h1>
+      <p class="hero-subhead">Transparent pricing. Predictable delivery.</p>
+      <p class="hero-message">
+        We price for outcomes and clarity. Choose a fixed package when scope is well-understood, or spin up a dedicated pod for evolving roadmaps.
+        Either way, we publish estimates, communicate tradeoffs, and keep you in the loop.
+      </p>
+      <div class="cta">
+        <a href="#models" class="btn">Compare Models</a>
+        <a href="#estimate" class="btn btn-outline">How We Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="solid-separator"></div>
+
+  <main>
+    <!-- PRICING MODELS -->
+    <section id="models" class="why-crm light-theme">
+      <h2>Engagement & Pricing Models</h2>
+      <div class="deliver-grid" style="margin-top:1.5rem;">
+        <article class="card">
+          <h3 class="card-highlight">Fixed-Scope Package</h3>
+          <p>Best when goals are crisp and bounded. We lock scope and milestones up front and deliver to an agreed definition of done.</p>
+          <ul class="card-list">
+            <li>Statement of Work with clear acceptance criteria</li>
+            <li>Milestone-based billing</li>
+            <li>Change control for new ideas without derailing delivery</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3 class="card-highlight">Dedicated Team</h3>
+          <p>Ideal for evolving roadmaps or product buildouts. A cross-functional pod that ships in tight, demo-driven iterations.</p>
+          <ul class="card-list">
+            <li>Simple monthly retainer (pod capacity)</li>
+            <li>Prioritized backlog, 1–2 week sprints</li>
+            <li>Roadmap agility without renegotiating scope</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3 class="card-highlight">Advisory & Architecture</h3>
+          <p>Fractional leadership for strategy, governance, and high-leverage technical decisions across teams and vendors.</p>
+          <ul class="card-list">
+            <li>Weekly cadence for workshops and guidance</li>
+            <li>Architecture reviews, vendor/solution selection</li>
+            <li>Hands-on prototypes where needed</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+<!-- WHAT'S INCLUDED -->
+<section class="why-crm">
+  <h2>What’s Included</h2>
+  <div class="deliver-grid" style="margin-top:1.5rem;">
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-chess-knight"></i> Leadership or Partnership</h3>
+      <p>We can lead technical solutioning as your primary architect or partner seamlessly with your team to co-design the transformative platform.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-sliders"></i> Flexible Delivery Options</h3>
+      <p>Engagement models tailored to your needs, budget, and timelines — from fixed-scope packages to dedicated pods and advisory retainers.</p>
+    </article>
+
+<article class="card light">
+  <h3 class="card-highlight"><i class="fa-solid fa-clipboard-list"></i> Business Assessment</h3>
+  <p>Discovery sessions and clear requirements to ground scope, priorities, and success criteria.</p>
+</article>
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-chart-line"></i> Impact Analysis</h3>
+      <p>Evidence-based projections for cost reduction and operational efficiency, including assumptions and measurable outcomes.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-pen-ruler"></i> Iterative UI/UX Design</h3>
+      <p>Rapid prototypes and usability feedback loops to maximize user acceptance across internal and external customers.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-bullhorn"></i> Clear Communication</h3>
+      <p>Transparent, frequent updates on scope, status, risks, and budget — so there are no surprises.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-handshake-angle"></i> Post-Delivery Grace Period</h3>
+      <p>Enhancements and bug fixes included for a defined grace period after go-live at no additional cost.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight"><i class="fa-solid fa-lifebuoy"></i> Operational Support Models</h3>
+      <p>Support plans agreed <em>before</em> implementation to lock in cost, roles, and response expectations — clearly communicated and accepted.</p>
+    </article>
+
+  </div>
+</section>
+<!-- HOW WE ESTIMATE -->
+<section id="estimate" class="why-crm light-theme">
+  <h2>How We Estimate</h2>
+  <p>
+    We convert scope into effort bands using historical delivery data for similar work. Estimates account for integration complexity,
+    data migration, team size, and decision latency. With a fixed package, we price to an agreed scope; with a dedicated team,
+    we forecast throughput and track burnup toward outcomes.
+  </p>
+
+<div class="estimate-lanes" role="group" aria-label="Estimate flow lanes">
+
+  <!-- Lane 1: Inputs -->
+  <div class="lane" aria-label="Inputs lane">
+    <h3 class="lane-title"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> Inputs</h3>
+
+    <div class="node" tabindex="0"
+         aria-label="Objectives, constraints, and success metrics"
+         data-tooltip="Objectives, constraints, and success metrics define value, non-negotiables, and how we will measure success.">
+      <i class="fa-regular fa-flag" aria-hidden="true"></i>
+      <span>Objectives & Metrics</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Systems and integrations"
+         data-tooltip="Systems & integrations: APIs, CRM, ERP, data pipelines, and vendor dependencies that shape scope and effort.">
+      <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+      <span>Systems & Integrations</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="UX scope, content, and compliance needs"
+         data-tooltip="UX scope, content, and compliance: accessibility, privacy, content strategy, and regulatory requirements.">
+      <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+      <span>UX & Compliance</span>
+    </div>
+  </div>
+
+  <!-- Bridge arrow to Estimate -->
+  <div class="lane-bridge" aria-hidden="true">➜</div>
+
+  <!-- Lane 2: Estimate -->
+  <div class="lane" aria-label="Estimate lane">
+    <h3 class="lane-title"><i class="fa-solid fa-calculator" aria-hidden="true"></i> Estimate</h3>
+
+    <div class="node" tabindex="0"
+         aria-label="Identify functional area and estimate development effort"
+         data-tooltip="Identify functional area (CRM, Web, API, etc.) and estimate the development effort for that unit.">
+      <i class="fa-solid fa-cubes" aria-hidden="true"></i>
+      <span>Functional Area Estimate</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Identify additional impacted areas and estimate"
+         data-tooltip="Identify additional impacted areas (adjacent systems or teams) and estimate the development effort.">
+      <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+      <span>Impacted Areas Estimate</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Apply percentage factors"
+         data-tooltip="Apply percentage factors to development for design, testing, and implementation so delivery is fully represented.">
+      <i class="fa-solid fa-percent" aria-hidden="true"></i>
+      <span>Apply Factors</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Roll up to a single total"
+         data-tooltip="Roll up to a single total that includes design, development, testing, and implementation as one unit of work.">
+      <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+      <span>Roll-Up Total</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Simplifies communication of cost vs hours"
+         data-tooltip="This approach simplifies stakeholder communication: cost and outcomes vs. raw hours.">
+      <i class="fa-solid fa-comments-dollar" aria-hidden="true"></i>
+      <span>Cost vs Hours Clarity</span>
+    </div>
+  </div>
+
+  <!-- Bridge arrow to Outputs -->
+  <div class="lane-bridge" aria-hidden="true">➜</div>
+
+  <!-- Lane 3: Outputs -->
+  <div class="lane" aria-label="Outputs lane">
+    <h3 class="lane-title"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> Outputs</h3>
+
+    <div class="node" tabindex="0"
+         aria-label="Delivery plan and risk register"
+         data-tooltip="Delivery plan with milestones and a risk register outlining mitigations and assumptions.">
+      <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+      <span>Delivery Plan</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Team composition and cadence"
+         data-tooltip="Team composition and cadence: who’s on the pod, ceremonies, and reporting rhythm.">
+      <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+      <span>Team & Cadence</span>
+    </div>
+
+    <div class="node" tabindex="0"
+         aria-label="Quote with assumptions & options"
+         data-tooltip="Quote with assumptions and options (e.g., scope tradeoffs, accelerators, and phasing).">
+      <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>
+      <span>Quote & Options</span>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+<section class="why-crm">
+  <h2>Pricing FAQs</h2>
+  <div class="deliver-grid" style="margin-top:1.5rem;">
+
+    <article class="card light">
+      <h3 class="card-highlight">Do you offer fixed bids or time-based models?</h3>
+      <p>Yes. We provide both fixed-bid packages (with locked scope) and dedicated team models, billed as a unit of hours per month.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight">How do you manage scope changes?</h3>
+      <p>Requirements are reviewed before development begins. This allows us to capture scope changes up front and prioritize work within your budget and timeline.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight">What is your delivery cadence?</h3>
+      <p>We work in two-week development sprints, providing demos and feedback opportunities at each iteration.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight">Where is your team located?</h3>
+      <p>We are a distributed team, highly experienced in collaborating and delivering as one unit, even without being in the same building.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight">Who covers travel and expenses?</h3>
+      <p>Travel and related expenses are the customer’s responsibility. Each situation is reviewed in advance, and billable costs are agreed on a case-by-case basis.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight">What about ongoing support?</h3>
+      <p>Support costs are defined and agreed to before a project begins, if BlueGrass CodeWorks is engaged for operational support. This ensures no surprises.</p>
+    </article>
+
+    <article class="card light">
+      <h3 class="card-highlight">Who owns the IP and source code?</h3>
+      <p>You do. All intellectual property, source code, and assets belong to the customer. We also provide training and knowledge transfer during project handoff.</p>
+    </article>
+
+  </div>
+</section>
+
+
+    <!-- CTA -->
+    <section class="testimonials" id="contact">
+      <h2>Get a Tailored Quote</h2>
+      <div class="testimonial-card" style="max-width:760px;margin:1rem auto;">
+        <p>Share your goals and constraints. We’ll propose the simplest plan that meets your outcomes.</p>
+        <a href="mailto:info@bluegrasscodeworks.com" class="btn" style="margin-top:1rem;">Start a Scope Discussion</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 All rights reserved. Designed in the HEAT in Scottsdale, AZ</p>
+  </footer>
+
+  <script src="site.js" defer></script>
+</body>
+</html>
